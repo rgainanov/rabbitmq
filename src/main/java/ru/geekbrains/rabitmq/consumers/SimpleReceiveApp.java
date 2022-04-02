@@ -22,6 +22,9 @@ public class SimpleReceiveApp {
 
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             String message = new String(delivery.getBody(), "UTF-8");
+            System.out.println(consumerTag);
+            System.out.println("envelope: " + delivery.getEnvelope());
+            System.out.println("properties: " + delivery.getProperties());
             System.out.println(Thread.currentThread().getName() + " [*] Received '" + message + "'");
         };
 
